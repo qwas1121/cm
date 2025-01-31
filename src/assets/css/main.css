@@ -101,12 +101,14 @@
   margin: 2vw 0;
   width: 16vw;
   height: 16vw;
-  background: #000;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
-.poem_box.left .inner_img img {
+/* .poem_box.left .inner_img img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -114,7 +116,7 @@
   width: 100%;
   min-height: 100%;
   transform: translate(-50%, -50%);
-}
+} */
 .poem_box.left .today_text {
   color: #fff;
   font-size: 15px;
@@ -135,8 +137,9 @@
   align-items: center;
   justify-content: center;
   flex-flow: column;
-  width: 4.2vw;
-  height: 4.2vw;
+  /* width: 4vw;
+  height: 4vw; */
+  width: 75px; height: 75px;
   font-size: 20px;
   color: #fff;
   background: rgba(255, 255, 255, 0.2);
@@ -144,6 +147,10 @@
   border: none;
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transition: 0.5s ease;
+}
+.poem_box.left .btns button:hover {
+  background: rgba(0, 0, 0, 0.7);
 }
 .poem_box.left .btns button strong {
   margin-top: 7px;
@@ -188,7 +195,7 @@
 }
 .poem_box.right .poem_texts p {
   font-size: 15px;
-  line-height: 150%;
+  line-height: 170%;
 }
 .poem_box.right .poem_texts p.sign {
   margin-top: 20px;
