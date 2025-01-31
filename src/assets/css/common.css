@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+
+@font-face {
+  font-family: "BookkMyungjo";
+  src: url("../fonts/BookkMyungjo_Light.ttf") format("truetype"),
+    url("../fonts/BookkMyungjoOTF_Light.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "BookkMyungjo";
+  src: url("../fonts/BookkMyungjo_Bold.ttf") format("truetype"),
+    url("../fonts/BookkMyungjoOTF_Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: "Noto Sans KR", serif;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  padding: 10px 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+footer > * {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  text-align: center;
+}

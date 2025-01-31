@@ -1,0 +1,135 @@
+.mainpage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url(../img/bg_ex.png) no-repeat;
+  background-size: cover;
+}
+
+.poem_wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  transform: translate(-50%, -50%);
+}
+.poem_box {
+  position: relative;
+  padding: 30px;
+  width: 30vw;
+  height: 38vw;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.1);
+}
+.poem_box::before {
+  position: absolute;
+  top: 0px;
+  content: "";
+  width: calc(100% + 5px);
+  height: calc(100% + 3px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-top: none;
+  pointer-events: none;
+}
+.poem_box::after {
+  position: absolute;
+  top: 0px;
+  content: "";
+  width: calc(100% + 8px);
+  height: calc(100% + 7px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-top: none;
+  pointer-events: none;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+}
+.poem_box.left::before {
+  left: -5px;
+  border-right: none;
+}
+.poem_box.left::after {
+  left: -8px;
+  border-right: none;
+}
+.poem_box.right::before {
+  right: -5px;
+  border-left: none;
+}
+.poem_box.right::after {
+  right: -8px;
+  border-left: none;
+}
+.poem_inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.poem_box.right .poem_inner::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-image: url("../img/poem_border.png") 50 / 20px round;
+  opacity: 0.3;
+  pointer-events: none;
+}
+.poem_box.left .poem_inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw;
+}
+.poem_box.left .inner_img {
+  position: relative;
+  width: 17vw;
+  height: 17vw;
+  background: #000;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.poem_box.left .today_text {
+  color: #fff;
+  font-size: 17px;
+  letter-spacing: 0.2em;
+}
+.poem_box.left .btns {
+  display: flex;
+  gap: 1.5vw;
+}
+.poem_box.left .btns button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  width: 4vw;
+  height: 4vw;
+  font-size: 25px;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.poem_box.left .btns button strong {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #000;
+}
+.poem_box.right .poem_inner {
+  padding: 5vw 0;
+}
+.poem_box.right .poem_texts {
+  height: 100%;
+  text-align: center;
+  overflow-y: auto;
+  color: #fff;
+  font-family: "BookkMyungjo";
+  font-weight: normal;
+}
