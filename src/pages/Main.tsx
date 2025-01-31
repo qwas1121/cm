@@ -1,6 +1,6 @@
 // import React from "react";
 import "../assets/css/main.css";
-import { IoVolumeMediumSharp } from "react-icons/io5";
+// import { IoVolumeMediumSharp } from "react-icons/io5";
 import { IoVolumeMute } from "react-icons/io5";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import { MdRefresh } from "react-icons/md";
