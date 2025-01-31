@@ -40,15 +40,19 @@ const Main = () => {
         <section
           className={`mainpage ${poem.bg_black ? "on" : ""}`}
           key={poem.id}
-          style={{ backgroundImage: `url(${poem.bg})` }}
+          style={{
+            backgroundImage: `url(${import.meta.env.BASE_URL}${poem.bg})`,
+          }}
         >
-          {" "}
           <div className="poem_wrap">
             <div className="poem_box left">
               <div className="poem_inner">
                 <WeatherComponent />
                 <div className="inner_img">
-                  <img src={poem.img} alt={poem.title} />
+                  <img
+                    src={`${import.meta.env.BASE_URL}${poem.img}`}
+                    alt={poem.title}
+                  />
                 </div>
                 <div className="btns">
                   <button type="button" className="volume">
