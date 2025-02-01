@@ -6,9 +6,32 @@
     "bg": "/img/bg_01_car.jpg",
     "img": "/img/img_01_car.jpg",
     "music": "/music/car.mp3",
+    "music": "/music/car.mp3",
     "date": "2025-01-18",
     "bg_black": true,
     "class": "car"
+  },
+  {
+    "id": 2,
+    "title": "한강",
+    "content": "한강, 네가 있어 참 좋다.\n소리 없이 유유히 흐르는 한강.\n때로는 폭우에 몸살이 나도록 아플 때도 있지만,\n언제나 변함없이 유유히 흐르는 강물.\n네가 있어 참 좋다.\n\n각양각색의 옷을 갈아입고 우릴 반긴다.\n외로운 이도, 기쁜 이도,\n슬픈 이도, 고요한 이도\n따스한 어머니 품 속처럼\n이유 없이 반긴다.\n\n네가 있어 참 좋다.\n내 가까이 있어 더 좋다.\n내가 힘들고 지칠 때,\n내가 즐거울 때,\n언제든지 찾아갈 수 있어.\n네가 참 좋다.",
+    "bg": "/img/bg_02_river.jpg",
+    "img": "/img/img_02_river.jpg",
+    "music": "/music/river.mp3",
+    "date": "2025-01-13",
+    "bg_black": true,
+    "class": "river"
+  },
+  {
+    "id": 3,
+    "title": "그리운 아이들",
+    "content": "그리운 아이들,\n보고픈 아이들.\n기쁨을 줬던 아이들,\n행복을 줬던 아이들.\n즐거움을 줬던 아이들,\n반겨주던 아이들,\n걱정해주던 아이들.\n\n저 하늘의 별이 된 아이들,\n언제나 함께했던 아이들,\n영원히 함께 할 아이들.\n그 이름도, 그리운 강아지들.",
+    "bg": "/img/bg_03_dog.webp",
+    "img": "/img/img_03_dog.jpg",
+    "music": "/music/dog.mp3",
+    "date": "2025-01-11",
+    "bg_black": true,
+    "class": "dog"
   },
   {
     "id": 2,
