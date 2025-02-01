@@ -6,7 +6,6 @@
     "bg": "/img/bg_01_car.jpg",
     "img": "/img/img_01_car.jpg",
     "music": "/music/car.mp3",
-    "music": "/music/car.mp3",
     "date": "2025-01-18",
     "bg_black": true,
     "class": "car"

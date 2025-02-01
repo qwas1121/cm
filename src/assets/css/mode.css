@@ -1,0 +1,40 @@
+.lightmode .mainpage.on::before {
+  background: rgba(255, 255, 255, 0.4);
+}
+.lightmode .poem_box {
+  background: #fff;
+  background: url(/img/bg_light_poem.jpg);
+  border: 1px solid #c4c4c4;
+}
+.lightmode .poem_box::after,
+.lightmode .poem_box::before {
+  border-color: #c4c4c4;
+}
+.lightmode .poem_box.right .poem_texts {
+  color: #222;
+}
+.lightmode .poem_box.left .today_text {
+  color: #222;
+}
+.lightmode .poem_box.left .btns button,
+.lightmode .modal-overlay .btns button {
+  background: rgba(255, 255, 255, 0.5);
+  color: #222;
+}
+.lightmode .poem_box.left .btns button:hover,
+.lightmode .modal-overlay .btns button:hover {
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+.lightmode .modal_poem_cont .color_bg {
+  background: rgba(255, 255, 255, 0.5);
+}
+.lightmode .modal_poem_cont .text_wrap,
+.lightmode .modal-overlay .close-btn {
+  color: #222;
+}
+
+.lightmode .poem_box.right .poem_inner::before {
+  border-image: url("/DaeChun/src/assets/img/poem_border_black.png") 50 / 20px
+    round;
+}

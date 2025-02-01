@@ -18,12 +18,178 @@
 body {
   font-family: "Noto Sans KR", serif;
 }
+
+/* 전체 스크롤바 너비 조정 */
+*::-webkit-scrollbar {
+  width: 3px; /* 스크롤바 너비 설정 */
+}
+
+/* 스크롤바 트랙 (배경) */
+*::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.3); /* 스크롤바 트랙 색상 */
+  border-radius: 10px;
+}
+
+/* 스크롤바 핸들 (이동하는 부분) */
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px; /* 둥근 스타일 */
+}
+
+/* 스크롤바 핸들 호버 시 색상 변경 */
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.mode_btn strong {
+  font-size: 0;
+  line-height: 0;
+}
+
+/* 모드 변경 버튼 */
+.mode-toggle {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 120px;
+  height: 50px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px 0 5px 8px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+}
+
+.mode-toggle .btn_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  box-shadow: 0 0px 6px rgba(0, 0, 0, 0.1);
+}
+.mode-toggle.dark .btn_icon {
+  background: rgba(0, 0, 0, 0.5);
+}
+.mode-toggle.dark {
+  background: #22222278;
+  color: #fff;
+}
+.mode-toggle.light .btn_icon {
+  background: rgba(255, 255, 255, 0.5);
+}
+.mode-toggle.light {
+  background: rgba(255, 255, 255, 0.5);
+  color: #4c4c4c;
+}
+
+.toggle-inner {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+
+.mode-toggle .icon {
+  font-size: 20px;
+}
+
+.mode-toggle .label {
+  font-size: 12px;
+}
+
+.icon.sun {
+  color: #fa6944;
+}
+
+.icon.moon {
+  color: #fff;
+}
+
+/* header */
+header {
+  position: fixed;
+  z-index: 99;
+}
+
+/* 햄버거 버튼 */
+#menuToggle {
+  display: block;
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  background: transparent;
+  border: none;
+  z-index: 100;
+}
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 3px;
+  transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s ease;
+}
+#menuToggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+#menuToggle.active span:nth-child(2) {
+  opacity: 0;
+}
+#menuToggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* 메뉴 스타일 */
+.navMenu {
+  padding: 100px 0 0 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+  width: 200px;
+  height: 100vh;
+  display: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  z-index: 98;
+}
+
+.navMenu.open {
+  display: block;
+}
+
+.menu li {
+  padding: 15px;
+  text-align: center;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  display: block;
+}
+
+.menu li a:hover {
+  background: #ddd;
+}
+
+/* footer */
 footer {
   position: fixed;
   bottom: 0;
   padding: 10px 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: #2a2a2a;
 }
 footer > * {
   color: rgba(255, 255, 255, 0.5);
