@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import "./assets/css/normalize.css";
 import "./assets/css/default.css";
 import "./assets/css/common.css";
 

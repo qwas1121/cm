@@ -1,3 +1,57 @@
+@charset "utf-8";
+
+:root {
+  --primary: #e48aff;
+  --primary2: #b154df;
+  --secondary: #cca4ff;
+  --c_text: #cec6da;
+  --textColor: #fff;
+  --textColor2: #222;
+  --life: #ffcfd2;
+  --love : #f1c0e8;
+  --family: #fbf8cc;
+  --dog: #fde4cf;
+  --nature: #b9fbc0;
+  --happy: #cfbaf0;
+  --sad: #8eecf5;
+  --lifeT: #ee6770;
+  --loveT :rgb(175, 91, 160);
+  --familyT:rgb(59, 56, 13);
+  --dogT:rgb(138, 97, 64);
+  --natureT:#194d1e;
+  --happyT:rgb(61, 35, 102);
+  --sadT: #1f4447;
+}
+.lightmode {
+  --primary: #e48aff;
+  --primary2: #b154df;
+  --textColor: #222;
+  --textColor2: #fff;
+  --c_text: #2d2a35;
+  --life: #ffcfd2;
+  --love : #f1c0e8;
+  --family: #fbf8cc;
+  --dog: #fde4cf;
+  --nature: #b9fbc0;
+  --happy: #cfbaf0;
+  --sad: #8eecf5;
+  --lifeT: #ee6770;
+  --loveT :rgb(175, 91, 160);
+  --familyT:rgb(59, 56, 13);
+  --dogT:rgb(138, 97, 64);
+  --natureT:#194d1e;
+  --happyT:rgb(61, 35, 102);
+  --sadT: #1f4447;
+}
+.lightmode #menuToggle span {
+  background: #707070;
+}
+.lightmode footer {
+  background: #868686;
+}
+.lightmode footer > * {
+  color: rgba(255, 255, 255, 0.8);
+}
 .lightmode .mainpage.on::before {
   background: rgba(255, 255, 255, 0.4);
 }
@@ -11,15 +65,15 @@
   border-color: #c4c4c4;
 }
 .lightmode .poem_box.right .poem_texts {
-  color: #222;
+  color: var(--textColor);
 }
 .lightmode .poem_box.left .today_text {
-  color: #222;
+  color: var(--textColor);
 }
 .lightmode .poem_box.left .btns button,
 .lightmode .modal-overlay .btns button {
   background: rgba(255, 255, 255, 0.5);
-  color: #222;
+  color: var(--textColor);
 }
 .lightmode .poem_box.left .btns button:hover,
 .lightmode .modal-overlay .btns button:hover {
@@ -31,10 +85,61 @@
 }
 .lightmode .modal_poem_cont .text_wrap,
 .lightmode .modal-overlay .close-btn {
-  color: #222;
+  color: var(--textColor);
 }
 
 .lightmode .poem_box.right .poem_inner::before {
   border-image: url("/DaeChun/src/assets/img/poem_border_black.png") 50 / 20px
     round;
+}
+
+
+/* 검색 */
+.lightmode .nav_inner {
+  background: #f8f4fb;
+}
+
+.lightmode .nav_inner::before {
+  background: none;
+}
+.lightmode .nav_inner .search_box {
+  background: #fff;
+  border-right: 1px solid #f1f1f1;
+}
+.lightmode .nav_inner .input_wrap {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+.lightmode .search_inner input[type="text"] {
+  background: #fff;
+  border-color: #D8D8D8;
+}
+.lightmode .search_inner .sch_text input[type="text"] {
+  background-image: url("../img/common/icon_search_dark.svg");
+} 
+.lightmode .search_inner .sch_cal input[type="text"] {
+  background-image: url("../img/common/icon_calendar_dark.svg"); 
+}
+.lightmode .hd_logo {
+  border-color: rgba(0, 0, 0, 0.05);
+}
+.lightmode .hd_logo .logo_img {
+  background-image: url(../img/common/logo.svg);
+}
+.lightmode .poem_cover {
+  position: relative;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+.lightmode .poem_cover::before {
+  position: absolute; top: 0; left: 0;
+  content: '';
+  width: 100%; height: 100%;
+  border: 1px solid #e2e2e2;
+}
+.lightmode .sch_title button {
+  border: 1px solid #D8D8D8;
+  color: var(--textColor);
+}
+.lightmode .sch_title button:hover {
+  background: #f0f0f0;
 }

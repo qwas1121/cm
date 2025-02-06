@@ -1,83 +1,92 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { IoVolumeMute, IoVolumeMediumSharp } from "react-icons/io5";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import { MdRefresh } from "react-icons/md";
 import WeatherComponent from "../components/WeatherComponent";
-import poemData from "../assets/poem.json";
 import Popup from "./MainPopup";
+import { Poem, MainProps } from "../types/types";
 
-interface Poem {
-  id: number;
-  title: string;
-  content: string;
-  bg?: string;
-  img?: string;
-  music?: string;
-  date: string | Date;
-  bg_black: boolean;
-}
-
-const Main = () => {
+const Main: React.FC<MainProps> = ({
+  poems,
+  selectedPoem,
+  setSelectedPoem,
+}) => {
+  const [isFromList, setIsFromList] = useState<boolean>(false);
   const [poem, setPoem] = useState<Poem | null>(null);
-  const [isMuted, setIsMuted] = useState(false);
-  const [isEntered, setIsEntered] = useState(false); // ✅ 입장
-  const [isPopupOpen, setIsPopupOpen] = useState(false); // ✅ 팝업 상태
+  const [isMuted, setIsMuted] = useState<boolean>(false);
+  const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const lastPoemId = useRef<number | null>(null);
 
-  // ✅ 랜덤한 시 선택 (이전과 같은 시가 나오지 않도록 설정)
-  const getRandomPoem = () => {
-    if (poemData.length < 2) return;
-
-    let randomIndex;
-    do {
-      randomIndex = Math.floor(Math.random() * poemData.length);
-    } while (poemData[randomIndex].id === lastPoemId.current);
-
-    const selectedPoem = poemData[randomIndex];
-    lastPoemId.current = selectedPoem.id;
-
-    setPoem({
-      ...selectedPoem,
-      date:
-        typeof selectedPoem.date === "string"
-          ? new Date(selectedPoem.date + "T00:00:00Z")
-          : selectedPoem.date,
-    });
-
-    setIsMuted(false); // ✅ 새로운 시 선택 시 음소거 해제
-
-    // ✅ 음악 변경 (입장한 상태일 때만 재생)
-    if (audioRef.current) {
-      audioRef.current.pause(); // 기존 음악 정지
-      audioRef.current.src = ""; // 기존 소스 제거
+  // ✅ 처음 입장 시 랜덤 시 선택
+  useEffect(() => {
+    if (!selectedPoem) {
+      getRandomPoem();
+    } else {
+      setPoem(selectedPoem);
+      setIsFromList(true); // ✅ 리스트에서 선택됨
+      playMusic(selectedPoem);
     }
-    if (selectedPoem.music && isEntered) {
-      setTimeout(() => {
-        if (audioRef.current) {
-          audioRef.current.src = import.meta.env.BASE_URL + selectedPoem.music;
-          audioRef.current
-            .play()
-            .catch((error) => console.error("자동 재생 실패:", error));
-        }
-      }, 100); // 🎯 브라우저 정책에 맞게 약간의 지연 추가
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedPoem]);
+
+  // ✅ `isFromList` 상태 변경 감지 (버튼 업데이트 반영)
+  // useEffect(() => {}, [isFromList]);
+
+  // ✅ 음악 재생 함수
+  const playMusic = (poem: Poem) => {
+    if (!audioRef.current) return;
+
+    const audio = audioRef.current;
+    audio.pause(); // 기존 음악 정지
+    audio.src = ""; // 기존 소스 제거
+
+    if (poem.music) {
+      audio.src = import.meta.env.BASE_URL + poem.music;
+      audio.load(); // ✅ 오디오 로드
+
+      const playHandler = () => {
+        audio.play().catch(error => console.error("자동 재생 실패:", error));
+        audio.removeEventListener("canplaythrough", playHandler); // ✅ 이벤트 제거
+      };
+
+      audio.addEventListener("canplaythrough", playHandler);
     }
   };
 
-  // ✅ 페이지 접속 or 새로고침 시 자동 실행 (랜덤 시 선택)
-  useEffect(() => {
-    getRandomPoem();
-  }, []);
+  // ✅ 랜덤 시 가져오기 (입장 시 & 랜덤 버튼 클릭 시)
+  const getRandomPoem = () => {
+    if (poems.length < 2) return;
 
-  // ✅ "입장하기" 버튼 클릭 시 음악 자동 재생
-  const handleEnter = () => {
-    setIsEntered(true);
-    if (audioRef.current && poem?.music) {
-      audioRef.current.src = import.meta.env.BASE_URL + poem.music;
-      audioRef.current
-        .play()
-        .catch((error) => console.error("자동 재생 실패:", error));
-    }
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * poems.length);
+    } while (poems[randomIndex].id === poem?.id); // ✅ 중복 방지
+
+    setIsFromList(false); // ✅ 랜덤 시 선택됨 (즉시 반영)
+    setSelectedPoem(poems[randomIndex]); // ✅ App.tsx의 상태도 변경
+
+    setTimeout(() => {
+      setIsFromList(false); // ✅ 비동기 업데이트 보장
+    }, 0);
+
+    playMusic(poems[randomIndex]);
+  };
+
+  // ✅ 다음 시 가져오기 (리스트 선택 후)
+  const getNextPoem = () => {
+    if (!poem || poems.length < 2) return;
+
+    const currentIndex = poems.findIndex(p => p.id === poem.id);
+    const nextIndex = (currentIndex + 1) % poems.length;
+
+    setSelectedPoem(poems[nextIndex]); // ✅ App.tsx의 상태도 변경
+    setIsFromList(true); // ✅ 리스트에서 선택됨
+
+    setTimeout(() => {
+      setIsFromList(true); // ✅ 비동기 업데이트 보장
+    }, 0);
+
+    playMusic(poems[nextIndex]);
   };
 
   // ✅ 음소거 토글
@@ -88,31 +97,9 @@ const Main = () => {
     }
   };
 
-  // ✅ 팝업 열기 (기존 음악 유지)
-  const openPopup = () => {
-    setIsPopupOpen(true);
-  };
-
-  // ✅ 팝업 닫기
-  const closePopup = () => {
-    setIsPopupOpen(false);
-  };
-
   return (
     <>
-      {/* ✅ 입장하기 버튼 (z-index로 최상단) */}
-      {!isEntered && (
-        <div className="intro-overlay">
-          <div className="intro-content">
-            <h1>대춘이 시집</h1>
-            <button className="enter-button" onClick={handleEnter}>
-              입장하기
-            </button>
-          </div>
-        </div>
-      )}
-
-      {poem && isEntered && (
+      {poem && (
         <section
           className={`mainpage ${poem.bg_black ? "on" : ""}`}
           key={poem.id}
@@ -120,7 +107,7 @@ const Main = () => {
             backgroundImage: `url(${import.meta.env.BASE_URL}${poem.bg})`,
           }}
         >
-          {/* ✅ 오디오 태그를 이용한 자동 재생 & 음소거 가능 */}
+          {/* ✅ 오디오 태그 */}
           {poem.music && (
             <audio
               ref={audioRef}
@@ -143,34 +130,33 @@ const Main = () => {
                   }}
                 ></div>
                 <div className="btns">
-                  {/* ✅ 음소거 토글 버튼 */}
                   <button type="button" className="volume" onClick={toggleMute}>
                     {isMuted ? <IoVolumeMute /> : <IoVolumeMediumSharp />}
                     <strong>{isMuted ? "음소거 해제" : "음소거"}</strong>
                   </button>
 
-                  {/* ✅ 팝업 열기 */}
                   <button
                     type="button"
                     className="fullscreen"
-                    onClick={openPopup} // ✅ 이제 openPopup이 정상적으로 동작함
+                    onClick={() => setIsPopupOpen(true)}
                   >
                     <AiOutlineFullscreen />
                     <strong>크게보기</strong>
                   </button>
+
+                  {/* ✅ 버튼 상태 변경 */}
                   <button
                     type="button"
                     className="refresh"
-                    onClick={getRandomPoem}
+                    onClick={isFromList ? getNextPoem : getRandomPoem}
                   >
                     <MdRefresh />
-                    <strong>다음 랜덤 시</strong>
+                    <strong>{isFromList ? "다음 시" : "다음 랜덤 시"}</strong>
                   </button>
                 </div>
               </div>
             </div>
 
-            {/* ✅ box_right 내용 유지 */}
             <div className="poem_box right">
               <div className="poem_inner">
                 <div className="poem_texts">
@@ -184,23 +170,12 @@ const Main = () => {
                     ))}
                   </p>
                   <p className="sign">
-                    {String(
-                      poem.date instanceof Date
-                        ? poem.date.getFullYear()
-                        : new Date(poem.date).getFullYear()
+                    {String(new Date(poem.date).getFullYear())}.
+                    {String(new Date(poem.date).getMonth() + 1).padStart(
+                      2,
+                      "0"
                     )}
-                    .
-                    {String(
-                      poem.date instanceof Date
-                        ? poem.date.getMonth() + 1
-                        : new Date(poem.date).getMonth() + 1
-                    ).padStart(2, "0")}{" "}
-                    .
-                    {String(
-                      poem.date instanceof Date
-                        ? poem.date.getDate()
-                        : new Date(poem.date).getDate()
-                    ).padStart(2, "0")}
+                    .{String(new Date(poem.date).getDate()).padStart(2, "0")}
                     <br /> - ㅊㅁ -
                   </p>
                 </div>
@@ -210,14 +185,13 @@ const Main = () => {
         </section>
       )}
 
-      {/* ✅ 팝업 연결 */}
       {poem && isPopupOpen && (
         <Popup
           poem={poem}
           isOpen={isPopupOpen}
-          onClose={closePopup} // ✅ 팝업 닫기 함수 전달
-          toggleMute={toggleMute} // ✅ 메인의 음소거 상태 변경 함수 전달
-          isMuted={isMuted} // ✅ 현재 음소거 상태 전달
+          onClose={() => setIsPopupOpen(false)}
+          toggleMute={toggleMute}
+          isMuted={isMuted}
         />
       )}
     </>

@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { HeaderProps, Poem } from "../types/types";
+import Search from "./Search";
 
-const Header = () => {
+const Header: React.FC<HeaderProps> = ({ poems, onSelectPoem }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [filteredPoems, setFilteredPoems] = useState<Poem[]>(poems); // ✅ 검색된 시 목록
 
-  // isOpen 상태가 변경될 때 <body> 클래스 업데이트
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add("menuOpen");
@@ -18,7 +20,6 @@ const Header = () => {
 
   return (
     <header>
-      {/* 햄버거 버튼 */}
       <button
         id="menuToggle"
         className={isOpen ? "active" : ""}
@@ -31,21 +32,65 @@ const Header = () => {
         <span></span>
       </button>
 
-      {/* 네비게이션 메뉴 */}
-      <ul className={`navMenu ${isOpen ? "open" : ""}`}>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/about">About</a>
-        </li>
-        <li>
-          <a href="/services">Services</a>
-        </li>
-        <li>
-          <a href="/contact">Contact</a>
-        </li>
-      </ul>
+      <div className={`navMenu ${isOpen ? "open" : ""}`}>
+        <div className="nav_inner">
+
+          {/* 🔍 검색 기능 추가 → 필터링된 결과 적용 */}
+          <Search poems={poems} setFilteredPoems={setFilteredPoems} />
+
+          {/* 📖 시 리스트 (검색 결과 적용) */}
+          <ul className="poem_list">
+            {filteredPoems.map(poem => (
+              <li
+                key={poem.id}
+                onClick={() => {
+                  onSelectPoem(poem);
+                  setIsOpen(false);
+                }}
+              >
+                <div className="poem_cover">
+                  <div
+                    className="img"
+                    style={{
+                      backgroundImage: `url(${import.meta.env.BASE_URL}${
+                        poem.bg
+                      })`,
+                    }}
+                  ></div>
+                </div>
+                <div className="labels">
+                  {poem.category.map(cat => (
+                    <span
+                      key={cat.id}
+                      className={`${cat.id}`}
+                      ref={el => {
+                        if (el) {
+                          el.style.setProperty(
+                            "--category-color",
+                            `var(--${cat.id})`
+                          );
+                          el.style.setProperty(
+                            "--category-text",
+                            `var(--${cat.id}T)`
+                          );
+                        }
+                      }}
+                    >
+                      {cat.name}
+                    </span> // ✅ 한글 이름 표시
+                  ))}
+                </div>
+                <strong className="poem_title">{poem.title}</strong>
+                <p className="poem_date">
+                  {String(new Date(poem.date).getFullYear())}.
+                  {String(new Date(poem.date).getMonth() + 1).padStart(2, "0")}.
+                  {String(new Date(poem.date).getDate()).padStart(2, "0")}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </header>
   );
 };

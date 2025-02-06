@@ -1,0 +1,193 @@
+@charset "utf-8";
+
+.nav_inner {
+  display: flex;
+  height: 100%;
+  background: #2b2434;
+}
+.nav_inner::before {
+  position: absolute; top: 0; left: 0;
+  content: '';
+  width: 100%; height: 100%;
+  background: url("../img/bg_poem_dark.jpg");
+  opacity: 0.2;
+  pointer-events: none;
+}
+.nav_inner > * {
+  position: relative;
+  padding: 100px 0;
+  z-index: 1;
+}
+.hd_logo {
+  margin-bottom: 30px;
+  padding: 30px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.hd_logo .logo_img {
+  width: 60px; height: 60px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../img/common/logo_w.svg);
+  opacity: 0.6;
+}
+/* 검색 */
+.nav_inner .search_box {
+  padding-top: 70px;
+  padding-left: 30px; padding-right: 30px;
+  /* width: 19vw; */
+  width: 350px;
+  height: 100%;
+  background: #241d2d;
+}
+.search_inner input[type="text"] {
+  color: #fff;
+  background-color: rgba(255,255,255,0.2);
+  background-repeat: no-repeat !important;
+  background-position: center right 12px !important;
+  background-size: 20px !important;
+  border-color: rgba(255,255,255,0.3);
+}
+.search_inner .sch_text input[type="text"] {
+  background-image: url("../img/common/icon_search_white.svg");
+} 
+.search_inner .sch_cal input[type="text"] {
+  background-image: url("../img/common/icon_calendar_white.svg");
+}
+.search_inner .input_wrap:has(.clear_btn) input[type="text"],
+.search_inner .sch_cal:has(.main_calendar) input[type="text"] {
+  background-image: none;
+}
+.search_inner .sch_text input[type="text"]:focus {
+  border-color: var(--secondary);
+}
+.search_inner input[type="text"]::placeholder {
+  color: #fff;
+}
+
+.sch_title {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-between; align-items: center;
+}
+.sch_title p {
+  font-size: 17px; font-weight: 300;
+  color: var(--textColor);
+}
+.sch_title button {
+  padding: 0 12px;
+  font-size: 14px; color: rgba(255,255,255,0.8); line-height: 35px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 4px; 
+  transition: 0.3s ease;
+}
+.sch_title button:hover {
+  background: var(--c_text);
+  color: var(--textColor2);
+}
+.sch_text {
+  margin-bottom: 10px;
+}
+
+.cate_list {
+  display: flex;
+  margin-top: 40px;
+  flex-direction: column; gap: 15px;
+}
+.cate_list li p {
+  position: relative;
+  padding: 8px 0 8px 16px;
+  color: var(--c_text); font-size: 15px;
+}
+.cate_list li p::before {
+  position: absolute; top: 0; left: 0;
+  content: '';
+  width: 4px; height: 100%;
+  border-radius: 2px;
+}
+.cate_list li p::before {
+  background: var(--category-color);
+  /* opacity: 0.7; */
+}
+.cate_list li input {
+	display: none;
+}
+.cate_list li label {
+	display: inline-block;
+	padding: 3px 0 3px 26px;
+	background-repeat: no-repeat;
+	background-position: 0 center; 
+	background-image: url("../img/common/icon_check_off.svg");
+	cursor: pointer;
+}
+.cate_list li  input:checked + label {
+	background-image: url("../img/common/icon_check_on.svg");
+}  
+/* .cate_list li  input:disabled + label {
+	background-image: url(../../images/formstyle/icon_check_disabled.svg);
+	cursor: default;
+}  */
+.main_calendar {
+  margin-top: 5px;
+  padding: 10px 10px 30px;
+  background-color: rgba(255,255,255,0.2);
+  /* background-color: #fff; */
+  border-radius: 8px;
+}
+
+
+/* list */
+.poem_list {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap; gap: 2%;
+  padding-left: 50px; padding-right: 50px;
+}
+.poem_list li {
+  width: 17%;
+}
+.poem_cover {
+  padding: 20px;
+  width: 100%; height: 270px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.poem_cover .img {
+  width: 100%; height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.poem_list .poem_title {
+  font-family: "BookkMyungjo";
+  color: var(--c_text);
+  font-size: 20px;
+}
+.poem_list .labels  {
+  display: flex;
+  margin: 10px 0;
+  gap: 10px;
+}
+.poem_list .labels span {
+  position: relative;
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: #fff;
+  /* background: var(--category-color); */
+  color: var(--category-text); font-size: 14px; font-weight: 600;
+  border-radius: 4px;
+  z-index: 1;
+  /* opacity: 0.7; */
+}
+.poem_list .labels span::before {
+  position: absolute; top: 0; left: 0;
+  content: '';
+  width: 100%; height: 100%;
+  background: var(--category-color);
+  opacity: 0.5;
+  z-index: -1;
+}
+.poem_list .poem_date {
+  margin-top: 5px;
+  color: var(--c_text); font-size: 14px; font-weight: 300;
+}

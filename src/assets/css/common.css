@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
 
 @font-face {
@@ -14,6 +16,8 @@
   font-weight: 700;
   font-style: normal;
 }
+
+
 
 body {
   font-family: "Noto Sans KR", serif;
@@ -40,6 +44,41 @@ body {
 *::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.2);
 }
+
+/* formstylew */
+button {
+  background: none;
+  border: none;
+}
+.input_wrap {
+  position: relative;
+}
+.input_wrap .clear_btn {
+  position: absolute; top: 50%; right: 6px;
+  padding: 0 6px;
+  height: 100%;
+  font-size: 18px;   color: #8E8E8E;
+  transform: translateY(-50%);
+  transition: 0.3s ease;
+}
+.input_wrap .clear_btn:hover {
+  color: var(--c_text);
+}
+input[type="text"] {
+  padding: 0px 12px;
+  width: 100%;
+  border: 1px solid #D8D8D8;
+  color: #222;
+  border-radius: 4px;
+  line-height: 39px;
+}
+input[type="text"]::placeholder {
+  color: #8E8E8E; font-size: 14px;
+}
+input[type="text"]:focus {
+  outline: none !important;
+  border-color: var(--primary);
+}
 .mode_btn strong {
   font-size: 0;
   line-height: 0;
@@ -60,7 +99,7 @@ body {
   padding: 5px 0 5px 8px;
   transition: background 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 99;
+  z-index: 998;
 }
 
 .mode-toggle .btn_icon {
@@ -151,37 +190,33 @@ header {
 
 /* 메뉴 스타일 */
 .navMenu {
-  padding: 100px 0 0 30px;
   position: fixed;
   top: 0;
   left: 0;
-  background: white;
-  width: 200px;
+  width: 100%;
   height: 100vh;
   display: none;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   z-index: 98;
 }
 
 .navMenu.open {
   display: block;
 }
-
 .menu li {
   padding: 15px;
   text-align: center;
 }
-
 .menu li a {
   text-decoration: none;
   color: black;
   font-size: 18px;
   display: block;
 }
-
 .menu li a:hover {
   background: #ddd;
 }
+
+
 
 /* footer */
 footer {

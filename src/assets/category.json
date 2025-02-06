@@ -1,0 +1,9 @@
+[
+  { "id": "life", "name": "인생" },
+  { "id": "family", "name": "가족" },
+  { "id": "dog", "name": "강아지" },
+  { "id": "love", "name": "사랑" },
+  { "id": "nature", "name": "자연" },
+  { "id": "happy", "name": "행복" },
+  { "id": "sad", "name": "슬픔" }
+]
