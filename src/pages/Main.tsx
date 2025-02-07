@@ -127,9 +127,15 @@ const Main: React.FC<MainProps> = ({
           )}
 
           <div className="poem_wrap">
+            <div
+              className={`close_bt_bg mobile left ${menuOpen ? "on" : ""}`}
+              onClick={() => setMenuOpen(!menuOpen)}
+            ></div>
             <div className={`poem_box left ${menuOpen ? "open" : ""}`}>
               <div className="mobile" onClick={() => setMenuOpen(!menuOpen)}>
-                <p className="btn"><RiArrowUpDoubleLine /></p>
+                <p className="btn">
+                  <RiArrowUpDoubleLine />
+                </p>
               </div>
               <div className="poem_inner">
                 <WeatherComponent />
