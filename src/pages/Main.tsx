@@ -43,11 +43,11 @@ const Main: React.FC<MainProps> = ({
     const audio = audioRef.current;
     audio.pause(); // 기존 음악 정지
     audio.src = ""; // 기존 소스 제거
-    console.log("🎶 재생할 음악 파일:", poem.music);
-    console.log(
-      "🎼 현재 재생 중인 오디오 객체 수:",
-      document.querySelectorAll("audio").length
-    );
+    // console.log("🎶 재생할 음악 파일:", poem.music);
+    // console.log(
+    //   "🎼 현재 재생 중인 오디오 객체 수:",
+    //   document.querySelectorAll("audio").length
+    // );
 
     if (poem.music) {
       audio.src = import.meta.env.BASE_URL + poem.music;

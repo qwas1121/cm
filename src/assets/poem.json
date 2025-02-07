@@ -33,7 +33,7 @@
     "id": 3,
     "title": "그리운 아이들",
     "content": "그리운 아이들,\n보고픈 아이들.\n기쁨을 줬던 아이들,\n행복을 줬던 아이들.\n즐거움을 줬던 아이들,\n반겨주던 아이들,\n걱정해주던 아이들.\n\n저 하늘의 별이 된 아이들,\n언제나 함께했던 아이들,\n영원히 함께 할 아이들.\n그 이름도, 그리운 강아지들.",
-    "bg": "/img/bg_03_dog.webp",
+    "bg": "/img/bg_03_dog.jpg",
     "img": "/img/img_03_dog.jpg",
     "music": "/music/dog.mp3",
     "date": "2025-01-11",
@@ -43,6 +43,48 @@
       { "id": "dog", "name": "강아지" },
       { "id": "family", "name": "가족" },
       { "id": "love", "name": "사랑" }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "삶",
+    "content": "삶은, 그냥 삶이다.\n마음대로 되지 않는 게 삶이다.\n뜻대로 안 되는 게 삶이다.\n\n삶은 외롭고,\n때때로 괴롭기도 하다.\n그럼에도 가끔,\n행복이 스며든다.\n\n삶은 보람이 되기도 하고,\n때론 고문처럼 느껴진다.\n희망도 있지만,\n고통도 함께 한다.\n\n삶은 흘러가는 강물 같다.\n\n결국, 영원하지 않다.",
+    "bg": "/img/bg_04_life.jpg",
+    "img": "/img/img_4_life.jpg",
+    "music": "/music/life.mp3",
+    "date": "2025-01-13",
+    "bg_black": true,
+    "class": "life",
+    "category": [
+      { "id": "life", "name": "인생" },
+      { "id": "solitude", "name": "고독" }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "아차산",
+    "content": "아침 햇살을 친구 삼아\n조용히 산길을 오른다.\n살포시 내 피부를 스치는\n상쾌한 바람.\n그 부드러운 손길에\n마음이 맑아진다.\n\n멀리서 바라보면\n아담하고 따스한,\n마치 어머니 품 속 같은\n그 안에서 나는 평온을 배우고\n쉼을 얻는다.",
+    "bg": "/img/bg_mountain.jpg",
+    "img": "/img/img_mountain.jpg",
+    "music": "/music/mountain.mp3",
+    "date": "2025-01-13",
+    "bg_black": true,
+    "class": "mountain",
+    "category": [{ "id": "nature", "name": "자연" }]
+  },
+  {
+    "id": 6,
+    "title": "아름다운 흔적",
+    "content": "머리엔 은빛 서리가 내려\n세월의 흔적을 남기고,\n\n꺼무티티한 기미는\n햇살 아래 비추는 작은 꽃씨.\n살포시 꺼진 볼살은\n수많은 미소를 담았고,\n\n복어 같은 뱃살은 삶의 풍요를 품었다.\n추~욱 늘어진 엉덩이는\n쉼 없이 살아온 긴 여정의 흔적,\n\n삶의 무게가 느껴진다.\n그런 내가 좋다\n세월이  스며든  내  모습이 참 곱다.",
+    "bg": "/img/bg_cm.jpg",
+    "img": "/img/img_cm.jpg",
+    "music": "/music/cm.mp3",
+    "date": "2025-01-13",
+    "bg_black": true,
+    "class": "cm",
+    "category": [
+      { "id": "life", "name": "인생" },
+      { "id": "solitude", "name": "고독" }
     ]
   }
 ]

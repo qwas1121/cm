@@ -28,6 +28,9 @@
   .mobile {
     display: block;
   }
+  .mainpage {
+    background-position: center;
+  }
   .poem_wrap {
     display: block;
     padding: 22vw 0 5vw;
