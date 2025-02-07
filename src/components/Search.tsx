@@ -4,6 +4,8 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin, { DateClickArg } from "@fullcalendar/interaction";
 
 import { IoCloseCircle } from "react-icons/io5";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+
 import { InputChangeEvent, Poem } from "../types/types";
 
 import categoryDate from "../assets/category.json";
@@ -21,6 +23,8 @@ const Search: React.FC<SearchProps> = ({ poems, setFilteredPoems }) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null); // 📅 선택된 날짜
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]); // ☑️ 선택된 카테고리
   const [isCalendarOpen, setIsCalendarOpen] = useState<boolean>(false); // 📅 달력 표시 여부
+
+  const [mSearch, setMSearch] = useState<boolean>(false);
 
   useEffect(() => {
     setCategories(categoryDate);
@@ -137,12 +141,17 @@ const Search: React.FC<SearchProps> = ({ poems, setFilteredPoems }) => {
       </div>
       {/* ✅ 초기화 버튼 */}
       <div className="sch_title">
-        <p>원하는 시를 검색해 보세요.</p>
+        <p onClick={() => setMSearch(!mSearch)}>
+          원하는 시를 검색해 보세요.{" "}
+          <span className="mobile">
+            <MdOutlineKeyboardArrowDown />
+          </span>
+        </p>
         <button type="button" onClick={handleReset}>
           초기화
         </button>
       </div>
-      <div className="search_inner">
+      <div className={`search_inner ${mSearch ? "on" : ""}`}>
         {/* 🔍 검색 입력 */}
         <div className="sch_text">
           <div className="input_wrap">
