@@ -24,19 +24,20 @@
 @media screen and (max-width:480px) {
   .poem_wrap {
     display: block;
-    padding: 22vw 0 0;
+    padding: 22vw 0 5vw;
     width: 100%; min-height: 100vh;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
   }
   .poem_box.right {
     background: none !important;
-    width: 100%; height: auto;
+    width: 100%; height: auto;  max-height: 68vh;
     border-radius: 0;
     box-shadow: none;
     border: none;
     backdrop-filter: unset;
     -webkit-backdrop-filter: unset;
+    overflow-y: auto;
   }
   .poem_box.right .poem_inner {
     padding: 0 5% 2vw;
@@ -54,7 +55,7 @@
     border: none;
     padding: 0 0 9vw;
     background: rgba(0,0,0,0.7);
-    box-shadow: 0 -10px 20px rgba(0,0,0,0.8);
+    box-shadow: 0 -10px 20px rgba(0,0,0,0.2);
     border-radius: 35px 35px 0 0;
     z-index: 1;
     transition: 0.3s ease-in-out;
@@ -70,7 +71,7 @@
     text-align: center;
   }
   .poem_box.left .mobile .btn {
-    font-size: 9vw; color: var(--textColor);
+    font-size: 20px; color: var(--textColor);
   }
   .poem_box.left .mobile .btn svg {
     transition: 0.3s ease;
