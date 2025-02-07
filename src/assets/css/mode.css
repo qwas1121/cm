@@ -89,7 +89,7 @@
 }
 
 .lightmode .poem_box.right .poem_inner::before {
-  border-image: url("/DaeChun/src/assets/img/poem_border_black.png") 50 / 20px
+  border-image: url("../img/poem_border_black.png") 50 / 20px
     round;
 }
 

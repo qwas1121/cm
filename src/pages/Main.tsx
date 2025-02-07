@@ -17,6 +17,7 @@ const Main: React.FC<MainProps> = ({
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  
   // ✅ 처음 입장 시 랜덤 시 선택
   useEffect(() => {
     if (!selectedPoem) {
@@ -26,7 +27,7 @@ const Main: React.FC<MainProps> = ({
       setIsFromList(true); // ✅ 리스트에서 선택됨
       playMusic(selectedPoem);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedPoem]);
 
   // ✅ `isFromList` 상태 변경 감지 (버튼 업데이트 반영)
@@ -39,6 +40,8 @@ const Main: React.FC<MainProps> = ({
     const audio = audioRef.current;
     audio.pause(); // 기존 음악 정지
     audio.src = ""; // 기존 소스 제거
+    console.log("🎶 재생할 음악 파일:", poem.music);
+    console.log("🎼 현재 재생 중인 오디오 객체 수:", document.querySelectorAll("audio").length);
 
     if (poem.music) {
       audio.src = import.meta.env.BASE_URL + poem.music;
