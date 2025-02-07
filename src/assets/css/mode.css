@@ -143,3 +143,14 @@
 .lightmode .sch_title button:hover {
   background: #f0f0f0;
 }
+
+
+@media screen and (max-width:480px) {
+  .lightmode .poem_box {
+    border: none;
+  }
+  .lightmode .poem_box.left {
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 -10px 20px rgba(0,0,0,0.1);
+  }
+}

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { IoVolumeMute, IoVolumeMediumSharp } from "react-icons/io5";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import { MdRefresh } from "react-icons/md";
+import { RiArrowUpDoubleLine } from "react-icons/ri";
 import WeatherComponent from "../components/WeatherComponent";
 import Popup from "./MainPopup";
 import { Poem, MainProps } from "../types/types";
@@ -17,7 +18,9 @@ const Main: React.FC<MainProps> = ({
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  
+  // 모바일에서만 적용
+  const [menuOpen, setMenuOpen] = useState(false);
+
   // ✅ 처음 입장 시 랜덤 시 선택
   useEffect(() => {
     if (!selectedPoem) {
@@ -41,7 +44,10 @@ const Main: React.FC<MainProps> = ({
     audio.pause(); // 기존 음악 정지
     audio.src = ""; // 기존 소스 제거
     console.log("🎶 재생할 음악 파일:", poem.music);
-    console.log("🎼 현재 재생 중인 오디오 객체 수:", document.querySelectorAll("audio").length);
+    console.log(
+      "🎼 현재 재생 중인 오디오 객체 수:",
+      document.querySelectorAll("audio").length
+    );
 
     if (poem.music) {
       audio.src = import.meta.env.BASE_URL + poem.music;
@@ -121,7 +127,10 @@ const Main: React.FC<MainProps> = ({
           )}
 
           <div className="poem_wrap">
-            <div className="poem_box left">
+            <div className={`poem_box left ${menuOpen ? "open" : ""}`}>
+              <div className="mobile" onClick={() => setMenuOpen(!menuOpen)}>
+                <p className="btn"><RiArrowUpDoubleLine /></p>
+              </div>
               <div className="poem_inner">
                 <WeatherComponent />
                 <div

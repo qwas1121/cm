@@ -12,6 +12,7 @@ import poemData from "./assets/poem.json";
 import "./assets/css/main.css";
 import "./assets/css/poem_list.css";
 import "./assets/css/calendar.css";
+import "./assets/css/resizing.css";
 import "./assets/css/mode.css";
 
 function App() {

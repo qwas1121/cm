@@ -1,0 +1,108 @@
+@charset "utf-8";
+
+@media screen and (max-width:1400px) {
+  .poem_box {
+    width: 40vw; height: 48vw;
+  }
+  .poem_list {   
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width:1024px) {
+  .poem_list {   
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width:768px) {
+  .poem_list {   
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .poem_cover {
+    height: 37vw;
+  }
+}
+@media screen and (max-width:480px) {
+  .poem_wrap {
+    display: block;
+    padding: 22vw 0 0;
+    width: 100%; min-height: 100vh;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  .poem_box.right {
+    background: none !important;
+    width: 100%; height: auto;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    backdrop-filter: unset;
+    -webkit-backdrop-filter: unset;
+  }
+  .poem_box.right .poem_inner {
+    padding: 0 5% 2vw;
+  }
+  .poem_box::before, .poem_box::after {
+    display: none;
+  }
+
+  .poem_box.right .poem_inner::before {
+    display: none;
+  }
+  .poem_box.left {
+    position: absolute; bottom: 0; left: 0;
+    width: 100%; height: auto;
+    border: none;
+    padding: 0 0 9vw;
+    background: rgba(0,0,0,0.7);
+    box-shadow: 0 -10px 20px rgba(0,0,0,0.8);
+    border-radius: 35px 35px 0 0;
+    z-index: 1;
+    transition: 0.3s ease-in-out;
+  }
+  .poem_box.left .poem_inner{
+    display: none;
+    height: 0;
+    transition: 0.3s ease-in-out;
+
+  }
+  .poem_box.left .mobile {
+    padding: 5vw 0;
+    text-align: center;
+  }
+  .poem_box.left .mobile .btn {
+    font-size: 9vw; color: var(--textColor);
+  }
+  .poem_box.left .mobile .btn svg {
+    transition: 0.3s ease;
+  }
+  .poem_box.left.open {
+    display: block;
+  }
+  .poem_box.left.open .poem_inner {
+    display: flex;
+    padding-bottom: 10vw;
+    height: auto;
+    gap: 2vw;
+  }
+  .poem_box.left .today_text span {
+    font-size: 15px;
+  }
+  .poem_box.left.open .mobile .btn svg {
+    transform: rotate(180deg);
+  }
+
+  .modal-overlay .btns {
+    left: 5%;
+    z-index: 9;
+  }
+  .modal_poem .poem_img {
+    display: none;
+  }
+  .modal_poem_cont {
+    padding: 45vw 5% 20vw;
+  }
+  .modal_poem_cont .inner_bg,
+  .modal_poem_cont .color_bg {
+    width: 100%;
+  }
+}

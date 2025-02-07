@@ -277,6 +277,7 @@
 
 .modal_poem_cont .text_wrap {
   position: relative;
+  padding-bottom: 50px;
   z-index: 5;
   color: #fff;
   width: 100%;
