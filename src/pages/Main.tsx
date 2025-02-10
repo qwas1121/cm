@@ -28,7 +28,7 @@ const Main: React.FC<MainProps> = ({
     } else {
       setPoem(selectedPoem);
       setIsFromList(true); // ✅ 리스트에서 선택됨
-      playMusic(selectedPoem);
+      // playMusic(selectedPoem);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedPoem]);
