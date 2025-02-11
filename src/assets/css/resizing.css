@@ -192,5 +192,8 @@
     width: 100%;
     gap: 10vw 5%;
   }
+  .poem_cover {
+    padding: 10px;
+  }
 
 }
