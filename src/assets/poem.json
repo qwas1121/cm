@@ -84,7 +84,24 @@
     "class": "cm",
     "category": [
       { "id": "life", "name": "인생" },
-      { "id": "solitude", "name": "고독" }
+      { "id": "solitude", "name": "고독" },
+      { "id": "portrait", "name": "자화상" }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "거울 앞에 서",
+    "content": "머루처럼 새까맸던 머리결은\n한 올 한 올 은빛으로 물들고,\n탱글했던 얼굴엔\n살며시 고랑이 스며든다.\n\n인생의 중턱을 넘어\n후반에 다다른 지금,\n유수히 흐르는 세월을 따라\n\n가족들이 머물다 떠난 자리.\n남겨진 흔적을 정리하며,\n오랜 시간 함께했던\n저 하늘의 별이 된 반려견의\n동이와 코코사진의  바라본다.\n\n오늘도 거울 앞에 앉아\n조용히 나를 들여다본다.",
+    "bg": "/img/bg_cm2.jpg",
+    "img": "/img/img_cm2.jpg",
+    "music": "/music/cm2.mp3",
+    "date": "2025-01-15",
+    "bg_black": true,
+    "class": "cm",
+    "category": [
+      { "id": "life", "name": "인생" },
+      { "id": "solitude", "name": "고독" },
+      { "id": "portrait", "name": "자화상" }
     ]
   }
 ]

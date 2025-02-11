@@ -42,6 +42,9 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
   }
+  .navMenu {
+    height: 100svh;
+  }
   .poem_box.right {
     background: none !important;
     width: 100%; height: auto;  max-height: 68vh;
@@ -83,7 +86,7 @@
 
   }
   .poem_box.left .mobile {
-    padding: 5vw 0;
+    padding: 3vw 0;
     text-align: center;
   }
   .poem_box.left .mobile .btn {

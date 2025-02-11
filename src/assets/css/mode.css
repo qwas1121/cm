@@ -7,22 +7,24 @@
   --c_text: #cec6da;
   --textColor: #fff;
   --textColor2: #222;
-  --life: #ffcfd2;
-  --love : #f1c0e8;
-  --family: #fbf8cc;
-  --dog: #fde4cf;
-  --nature: #b9fbc0;
-  --happy: #cfbaf0;
-  --sad: #8eecf5;
-  --solitude : #cfe7fd;
-  --lifeT: #ee6770;
-  --loveT :rgb(175, 91, 160);
-  --familyT:rgb(59, 56, 13);
-  --dogT:rgb(138, 97, 64);
-  --natureT:#194d1e;
-  --happyT:rgb(61, 35, 102);
-  --sadT: #1f4447;
-  --solitudeT : #1f3247;
+  --life: #ffb6c1; /* 생명 - 연한 핑크 */
+  --love: #e89ec7; /* 사랑 - 로맨틱한 보라빛 핑크 */
+  --family: #f5d78e; /* 가족 - 더 따뜻한 옐로우 */
+  --dog: #f5b97d; /* 강아지 - 오렌지빛 크림 */
+  --portrait: #b39ddb; /* 자화상 - 깊은 라벤더 */
+  --nature: #88d498; /* 자연 - 연두빛 초록 */
+  --happy: #d6a3fb; /* 행복 - 밝은 바이올렛 */
+  --sad: #72c3dc; /* 슬픔 - 차분한 하늘색 */
+  --solitude: #a7c7e7; /* 고독 - 고요한 푸른색 */
+  --lifeT: #d64f65; /* 생명 - 진한 핑크 */
+  --loveT: #9d5b97; /* 사랑 - 부드러운 보라 */
+  --familyT: #6b4a1f; /* 가족 - 더 따뜻한 다크 브라운 */
+  --dogT: #a75d2b; /* 강아지 - 오렌지 계열 브라운 */
+  --portraitT: #5e3b8d; /* 자화상 - 더 깊은 보라 */
+  --natureT: #2e6d38; /* 자연 - 짙은 녹색 */
+  --happyT: #7a42b0; /* 행복 - 더 선명한 퍼플 */
+  --sadT: #1b5c77; /* 슬픔 - 차분한 푸른색 */
+  --solitudeT: #1c3d63; /* 고독 - 깊고 고요한 블루 */
 }
 .lightmode {
   --primary: #e48aff;
@@ -31,18 +33,18 @@
   --textColor2: #fff;
   --c_text: #2d2a35;
   --life: #ffcfd2;
-  --love : #f1c0e8;
+  --love: #f1c0e8;
   --family: #fbf8cc;
   --dog: #fde4cf;
   --nature: #b9fbc0;
   --happy: #cfbaf0;
   --sad: #8eecf5;
   --lifeT: #ee6770;
-  --loveT :rgb(175, 91, 160);
-  --familyT:rgb(59, 56, 13);
-  --dogT:rgb(138, 97, 64);
-  --natureT:#194d1e;
-  --happyT:rgb(61, 35, 102);
+  --loveT: rgb(175, 91, 160);
+  --familyT: rgb(59, 56, 13);
+  --dogT: rgb(138, 97, 64);
+  --natureT: #194d1e;
+  --happyT: rgb(61, 35, 102);
   --sadT: #1f4447;
 }
 .lightmode #menuToggle span {
@@ -91,10 +93,8 @@
 }
 
 .lightmode .poem_box.right .poem_inner::before {
-  border-image: url("../img/poem_border_black.png") 50 / 20px
-    round;
+  border-image: url("../img/poem_border_black.png") 50 / 20px round;
 }
-
 
 /* 검색 */
 .lightmode .nav_inner {
@@ -113,13 +113,13 @@
 }
 .lightmode .search_inner input[type="text"] {
   background: #fff;
-  border-color: #D8D8D8;
+  border-color: #d8d8d8;
 }
 .lightmode .search_inner .sch_text input[type="text"] {
   background-image: url("../img/common/icon_search_dark.svg");
-} 
+}
 .lightmode .search_inner .sch_cal input[type="text"] {
-  background-image: url("../img/common/icon_calendar_dark.svg"); 
+  background-image: url("../img/common/icon_calendar_dark.svg");
 }
 .lightmode .hd_logo {
   border-color: rgba(0, 0, 0, 0.05);
@@ -133,26 +133,28 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
 }
 .lightmode .poem_cover::before {
-  position: absolute; top: 0; left: 0;
-  content: '';
-  width: 100%; height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
   border: 1px solid #e2e2e2;
 }
 .lightmode .sch_title button {
-  border: 1px solid #D8D8D8;
+  border: 1px solid #d8d8d8;
   color: var(--textColor);
 }
 .lightmode .sch_title button:hover {
   background: #f0f0f0;
 }
 
-
-@media screen and (max-width:480px) {
+@media screen and (max-width: 480px) {
   .lightmode .poem_box {
     border: none;
   }
   .lightmode .poem_box.left {
     background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 -10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.1);
   }
 }
