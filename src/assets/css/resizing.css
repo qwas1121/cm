@@ -32,6 +32,7 @@
     background-position: center;
   }
   .poem_wrap {
+    position: fixed; top: 0; left: 0;
     display: block;
     padding: 22vw 0 5vw;
     width: 100%;
@@ -39,6 +40,7 @@
     height: 100svh;
     height: 100vh;
     min-height: 100vh;
+    transform: none;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
   }
@@ -149,6 +151,7 @@
   .nav_inner .search_box {
     padding: 30vw 5% 5vw;
     width: 100%; height: auto;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
   }
   .cate_list {
     display: grid;
