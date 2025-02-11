@@ -32,34 +32,38 @@ const Main: React.FC<MainProps> = ({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedPoem]);
-
-  // ✅ `isFromList` 상태 변경 감지 (버튼 업데이트 반영)
-  // useEffect(() => {}, [isFromList]);
+  // ✅ poem이 변경될 때 음악 재생
+  useEffect(() => {
+    if (poem && audioRef.current) {
+      playMusic(poem);
+    }
+  }, [poem]);
 
   // ✅ 음악 재생 함수
   const playMusic = (poem: Poem) => {
-    if (!audioRef.current) return;
+    if (!poem.music) return; // 음악이 없으면 실행하지 않음
+
+    if (!audioRef.current) {
+      console.warn("🎵 audioRef가 아직 생성되지 않음.");
+      return;
+    }
 
     const audio = audioRef.current;
-    audio.pause(); // 기존 음악 정지
-    audio.src = ""; // 기존 소스 제거
-    // console.log("🎶 재생할 음악 파일:", poem.music);
-    // console.log(
-    //   "🎼 현재 재생 중인 오디오 객체 수:",
-    //   document.querySelectorAll("audio").length
-    // );
 
-    if (poem.music) {
-      audio.src = import.meta.env.BASE_URL + poem.music;
-      audio.load(); // ✅ 오디오 로드
+    // ✅ 기존 음악이 재생 중이면 완전히 정지하고 소스 삭제
+    audio.pause();
+    audio.removeAttribute("src"); // ✅ 기존 소스 제거 (중복 방지)
+    audio.load(); // ✅ 강제로 리셋하여 기존 음악을 완전히 정지
 
-      const playHandler = () => {
-        audio.play().catch(error => console.error("자동 재생 실패:", error));
-        audio.removeEventListener("canplaythrough", playHandler); // ✅ 이벤트 제거
-      };
+    // ✅ 새로운 음악 소스 설정 후 로드
+    audio.src = import.meta.env.BASE_URL + poem.music;
+    audio.load();
 
-      audio.addEventListener("canplaythrough", playHandler);
-    }
+    // ✅ 로드 완료 후 재생
+    audio.addEventListener("canplaythrough", function playHandler() {
+      audio.play().catch(error => console.error("자동 재생 실패:", error));
+      audio.removeEventListener("canplaythrough", playHandler); // 이벤트 중복 방지
+    });
   };
 
   // ✅ 랜덤 시 가져오기 (입장 시 & 랜덤 버튼 클릭 시)
@@ -78,7 +82,7 @@ const Main: React.FC<MainProps> = ({
       setIsFromList(false); // ✅ 비동기 업데이트 보장
     }, 0);
 
-    playMusic(poems[randomIndex]);
+    // playMusic(poems[randomIndex]);
   };
 
   // ✅ 다음 시 가져오기 (리스트 선택 후)
@@ -95,7 +99,7 @@ const Main: React.FC<MainProps> = ({
       setIsFromList(true); // ✅ 비동기 업데이트 보장
     }, 0);
 
-    playMusic(poems[nextIndex]);
+    // playMusic(poems[nextIndex]);
   };
 
   // ✅ 음소거 토글
@@ -117,14 +121,7 @@ const Main: React.FC<MainProps> = ({
           }}
         >
           {/* ✅ 오디오 태그 */}
-          {poem.music && (
-            <audio
-              ref={audioRef}
-              src={import.meta.env.BASE_URL + poem.music}
-              autoPlay
-              loop
-            />
-          )}
+          <audio ref={audioRef} autoPlay loop />
 
           <div className="poem_wrap">
             <div
