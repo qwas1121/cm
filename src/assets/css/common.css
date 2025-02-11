@@ -17,7 +17,13 @@
   font-style: normal;
 }
 
-
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-height: -webkit-fill-available; /* iOS Safari 대응 */
+}
 
 body {
   font-family: "Noto Sans KR", serif;
