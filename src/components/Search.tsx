@@ -142,7 +142,7 @@ const Search: React.FC<SearchProps> = ({ poems, setFilteredPoems }) => {
       {/* ✅ 초기화 버튼 */}
       <div className="sch_title">
         <p onClick={() => setMSearch(!mSearch)}>
-          원하는 시를 검색해 보세요.{" "}
+          원하는 시를 검색해 보세요
           <span className="mobile">
             <MdOutlineKeyboardArrowDown />
           </span>

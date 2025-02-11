@@ -103,5 +103,51 @@
       { "id": "solitude", "name": "고독" },
       { "id": "portrait", "name": "자화상" }
     ]
+  },
+  {
+    "id": 8,
+    "title": "달 마중",
+    "content": "느지막한 저녁,\n남편과 함께 설희 마중길에 나섰다.\n크고 둥근 보름달이\n나뭇가지에도,\n고층 아파트 위에도 걸려 있다.\n보름달을 카메라에 담고 싶은데,\n도시의 불빛에 가려\n사진 속에 담기지 않는다.\n\n커다란 보름달은\n새까만 도화지에\n누런 황금덩이를 얹은 듯,\n\n밤하늘을 가득 채운다.\n설희는  오랜만에\n커다란 보름달을 보며 기뻐한다.\n\n우리가족은\n작은 소망을 빌어본다.",
+    "bg": "/img/bg_moon.jpg",
+    "img": "/img/img_moon.jpg",
+    "music": "/music/moon.mp3",
+    "date": "2025-01-18",
+    "bg_black": true,
+    "class": "cm",
+    "category": [
+      { "id": "family", "name": "가족" },
+      { "id": "happy", "name": "행복" },
+      { "id": "nature", "name": "자연" }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "시간이 전하는 위로",
+    "content": "가슴이 아려온다.\n어리고 귀여운 여섯 살,\n작은 물고기를 잡아서\n키우자던 아이는\n어느새 성장해\n중년의 문턱에 섰다.\n소중한 한 아이의\n아빠가 되었다.\n\n아이는 상처가 많단다.\n행복한 기억은 드물다.\n내 가슴이 아프다.\n\n소중한 아이의 아빠의\n앞길이 활짝 펼쳐진\n꽃길이 되기를,\n진심으로 바래본다.",
+    "bg": "/img/bg_wj.jpg",
+    "img": "/img/img_wj.jpg",
+    "music": "/music/wj.mp3",
+    "date": "2025-01-18",
+    "bg_black": true,
+    "class": "wj",
+    "category": [
+      { "id": "family", "name": "가족" },
+      { "id": "sad", "name": "슬픔" }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "홀로서기",
+    "content": "홀로서기를 한다.\n중년의 한가운데 서 있다.\n행복과 시련 속에서 벗어나,\n아이가 세상을 향해\n첫발을 떼듯이,\n한 발 한 발 조심스레\n사회에 발을 디딘다.\n\n아직 많이 부족하고,\n미숙하지만,\n열심히 뛰고 있다.\n\n때때로 쉽지 않은 순간도 있지만,\n활짝 웃으며 힘을 내본다.\n다가올 미래를 향해서,\n오늘도 달린다.\n\n환하게 빛을 발하는\n미래를 향해,\n힘껏 외쳐본다.\n할 수 있다고,\n잘할 수 있다고.",
+    "bg": "/img/bg_cm3.jpg",
+    "img": "/img/img_cm3.jpg",
+    "music": "/music/cm3.mp3",
+    "date": "2025-01-18",
+    "bg_black": true,
+    "class": "cm",
+    "category": [
+      { "id": "life", "name": "인생" },
+      { "id": "portrait", "name": "자화상" }
+    ]
   }
 ]

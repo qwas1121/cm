@@ -147,7 +147,7 @@
     display: none;
   }
   .nav_inner .search_box {
-    padding: 30vw 5% 5vw;
+    padding: 21vw 5% 5vw;
     width: 100%; height: auto;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
   }
@@ -192,6 +192,23 @@
   }
   .poem_cover {
     padding: 10px;
+  }
+
+  #menuToggle {
+    left: 5%;
+  }
+  .mode-toggle {
+    top: 20px; right: 5%;
+    width: 100px; height: 38px;
+  }
+  .mode-toggle .label {
+    font-size: 11px;
+  }
+  .mode-toggle .btn_icon {
+    width: 25px; height: 25px;
+  }
+  .mode-toggle .icon {
+    font-size: 15px;
   }
 
 }
