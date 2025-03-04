@@ -149,5 +149,29 @@
       { "id": "life", "name": "인생" },
       { "id": "portrait", "name": "자화상" }
     ]
+  },
+  {
+    "id": 11,
+    "title": "어머니의 품",
+    "content": "한 번도 뵌 적 없는 어머니,\n머나먼 곳에 계실 어머니.\n희고 고운 한복을\n곱게 차려 입으시고,\n머리는 곱게 빗어\n쪽비녀 하시고,\n근엄하게 앉아 계실 어머님.\n\n막걸리를 잘 만드셨다는\n대장부 같은 어머니,\n넓은 바다처럼\n마음으로 세상을 품으시고,\n우리에게 따스한 품으로\n지켜봐 주시는\n그리운 어머니.\n\n그립습니다.\n언제쯤 뵐 수 있을까요?\n그 품에 안길 수 있을까요?",
+    "bg": "/img/bg_mom.jpg",
+    "img": "/img/img_mom.jpg",
+    "music": "/music/mom.mp3",
+    "date": "2025-01-18",
+    "bg_black": true,
+    "class": "cm",
+    "category": [{ "id": "family", "name": "가족" }]
+  },
+  {
+    "id": 12,
+    "title": "따뜻한 손길",
+    "content": "따르릉,\n전화 벨이 울린다.\n저 멀리서 들려오는\n밝고 아름다운 목소리.\n\n얼굴은 모르지만\n알 수 있다.\n그 사람은 교양 있고,\n정 많은 사람일 거란 걸.\n\n감사하다.\n내가 힘들고 막막할 때,\n도움의 손길로 나를 위로해 준다.\n\n언제가 될지 모를 그날,\n한적하고 조용한 사찰에서\n평온하게 수다를 떨고 싶다.",
+    "bg": "/img/bg_tell.jpg",
+    "img": "/img/img_tell.jpg",
+    "music": "/music/tell.mp3",
+    "date": "2025-01-18",
+    "bg_black": true,
+    "class": "cm",
+    "category": [{ "id": "happy", "name": "행복" }]
   }
 ]

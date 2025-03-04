@@ -70,7 +70,7 @@
   content: "";
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .poem_wrap {
@@ -231,7 +231,7 @@
 }
 .poem_box.right .poem_texts p {
   font-size: 15px;
-  line-height: 170%;
+  line-height: 180%;
 }
 .poem_box.right .poem_texts p.sign {
   margin-top: 20px;
@@ -303,7 +303,7 @@
   width: 50%;
   height: 100vh;
   pointer-events: none;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 2;
 }
 .modal_poem_cont .poem_title {
@@ -314,7 +314,7 @@
 }
 .modal_poem_cont p {
   font-size: 15px;
-  line-height: 170%;
+  line-height: 180%;
 }
 .modal_poem_cont p.sign {
   margin-top: 20px;
