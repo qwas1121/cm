@@ -4,5 +4,5 @@ import react from "@vitejs/plugin-react";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/DaeChun/", // 저장소 이름을 정확히 입력해야 함!
+  base: "/cm/", // 저장소 이름을 정확히 입력해야 함!
 });

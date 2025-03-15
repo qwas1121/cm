@@ -35,7 +35,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter basename="/DaeChun">
+    <BrowserRouter basename="/cm">
       {!isEntered && (
         <div className="intro-overlay">
           <div className="intro-content">
