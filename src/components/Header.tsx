@@ -34,7 +34,6 @@ const Header: React.FC<HeaderProps> = ({ poems, onSelectPoem }) => {
 
       <div className={`navMenu ${isOpen ? "open" : ""}`}>
         <div className="nav_inner">
-
           {/* 🔍 검색 기능 추가 → 필터링된 결과 적용 */}
           <Search poems={poems} setFilteredPoems={setFilteredPoems} />
 
@@ -52,9 +51,11 @@ const Header: React.FC<HeaderProps> = ({ poems, onSelectPoem }) => {
                   <div
                     className="img"
                     style={{
-                      backgroundImage: `url(${import.meta.env.BASE_URL}${
-                        poem.bg
-                      })`,
+                      backgroundImage: `url(${
+                        import.meta.env.BASE_URL
+                      }img/img_${poem.class}${
+                        window.innerWidth <= 768 ? "_m" : ""
+                      }.webp)`,
                     }}
                   ></div>
                 </div>

@@ -117,7 +117,9 @@ const Main: React.FC<MainProps> = ({
           className={`mainpage ${poem.bg_black ? "on" : ""}`}
           key={poem.id}
           style={{
-            backgroundImage: `url(${import.meta.env.BASE_URL}${poem.bg})`,
+            backgroundImage: `url(${import.meta.env.BASE_URL}img/img_${
+              poem.class
+            }${window.innerWidth <= 768 ? "_m" : ""}.webp)`,
           }}
         >
           {/* ✅ 오디오 태그 */}
@@ -139,9 +141,9 @@ const Main: React.FC<MainProps> = ({
                 <div
                   className="inner_img"
                   style={{
-                    backgroundImage: `url(${import.meta.env.BASE_URL}${
-                      poem.img
-                    })`,
+                    backgroundImage: `url(${import.meta.env.BASE_URL}img/img_${
+                      poem.class
+                    }${window.innerWidth <= 768 ? "_m" : ""}.webp)`,
                   }}
                 ></div>
                 <div className="btns">
