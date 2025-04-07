@@ -5,6 +5,7 @@ export interface Poem {
   content: string;
   bg?: string;
   img?: string;
+  class: string;
   music?: string;
   date: string | Date;
   bg_black: boolean;
