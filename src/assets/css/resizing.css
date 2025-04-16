@@ -28,6 +28,8 @@
   }
   .intro-content {
     width: 80%;
+    background: none;
+    border: none;
   }
 }
 @media screen and (max-width:480px) {
