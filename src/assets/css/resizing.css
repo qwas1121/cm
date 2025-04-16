@@ -23,6 +23,12 @@
   .poem_cover {
     height: 37vw;
   }
+  .intro-overlay p {
+    font-size: 14px;
+  }
+  .intro-content {
+    width: 80%;
+  }
 }
 @media screen and (max-width:480px) {
   .mobile {

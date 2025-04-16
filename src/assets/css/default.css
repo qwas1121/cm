@@ -1,5 +1,15 @@
 @charset "utf-8";
 
+
+html, body, div, span, p, ul, li, section, input, textarea, button {
+  cursor: url('../img/cursor-default.png') 0 0, auto !important; 
+}
+
+a:hover, button:hover {
+  cursor: url('../img/cursor-hover.png') 0 0, auto !important; 
+}
+
+
 html,
 body,
 div,

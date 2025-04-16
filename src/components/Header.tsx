@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({ poems, onSelectPoem }) => {
                       backgroundImage: `url(${
                         import.meta.env.BASE_URL
                       }img/img_${poem.class}${
-                        window.innerWidth <= 768 ? "_m" : ""
+                        window.innerWidth <= 768 ? "" : "_m"
                       }.webp)`,
                     }}
                   ></div>
