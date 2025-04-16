@@ -1,13 +1,13 @@
-const Sakura = function (selector, options) {
-  if (typeof selector === "undefined") {
-    throw new Error("No selector present. Define an element.");
+const Sakura = function(selector, options) {
+  if (typeof selector === 'undefined') {
+    throw new Error('No selector present. Define an element.');
   }
 
   this.el = document.querySelector(selector);
 
   // Defaults for the option object, which gets extended below.
   const defaults = {
-    className: "sakura", // Classname of the petal. This corresponds with the css.
+    className: 'sakura', // Classname of the petal. This corresponds with the css.
     fallSpeed: 1, // Speed factor in which the petal falls (higher is slower).
     maxSize: 14, // The maximum size of the petal.
     minSize: 10, // The minimum size of the petal.
@@ -15,8 +15,8 @@ const Sakura = function (selector, options) {
     colors: [
       {
         // You can add multiple colors (chosen randomly) by adding elements to the array.
-        gradientColorStart: "rgba(245, 138, 255, 0.9)", // Gradient color start (rgba).
-        gradientColorEnd: "rgba(248, 197, 255, 0.9)", // Gradient color end (rgba).
+        gradientColorStart: 'rgba(255, 183, 197, 0.9)', // Gradient color start (rgba).
+        gradientColorEnd: 'rgba(255, 197, 208, 0.9)', // Gradient color end (rgba).
         gradientColorDegree: 120, // Gradient degree angle.
       },
     ],
@@ -24,7 +24,7 @@ const Sakura = function (selector, options) {
   };
 
   // Merge defaults with user options.
-  const extend = function (originalObj, newObj) {
+  const extend = function(originalObj, newObj) {
     Object.keys(originalObj).forEach(key => {
       if (newObj && Object.prototype.hasOwnProperty.call(newObj, key)) {
         const origin = originalObj;
@@ -42,7 +42,8 @@ const Sakura = function (selector, options) {
 
   // Every sec check petals for remove (by lifeTime)
   setInterval(() => {
-    if (!this.settings.lifeTime) return;
+    if (!this.settings.lifeTime)
+      return;
 
     const keysForRemove = [];
     const stamp = Date.now();
@@ -60,7 +61,7 @@ const Sakura = function (selector, options) {
   }, 1000);
 
   // Hide horizontal scrollbars on the target element.
-  this.el.style.overflowX = "hidden";
+  this.el.style.overflowX = 'hidden';
 
   // Random array element
   function randomArrayElem(arr) {
@@ -73,7 +74,7 @@ const Sakura = function (selector, options) {
   }
 
   // Check for animation events.
-  const prefixes = ["webkit", "moz", "MS", "o", ""];
+  const prefixes = ['webkit', 'moz', 'MS', 'o', ''];
   function PrefixedEvent(element, type, callback) {
     for (let p = 0; p < prefixes.length; p += 1) {
       let animType = type;
@@ -100,35 +101,30 @@ const Sakura = function (selector, options) {
   }
 
   this.createPetal = () => {
-    const maxPetals = 100;
-    const currentPetals = this.el.querySelectorAll(
-      `.${this.settings.className}`
-    ).length;
-    if (currentPetals >= maxPetals) {
+    if (this.el.dataset.sakuraAnimId) {
       setTimeout(() => {
         window.requestAnimationFrame(this.createPetal);
       }, this.settings.delay);
-      return;
     }
 
     // Name the animations. These have to match the animations in the CSS file.
     const animationNames = {
       blowAnimations: [
-        "blow-soft-left",
-        "blow-medium-left",
-        "blow-soft-right",
-        "blow-medium-right",
+        'blow-soft-left',
+        'blow-medium-left',
+        'blow-soft-right',
+        'blow-medium-right',
       ],
       swayAnimations: [
-        "sway-0",
-        "sway-1",
-        "sway-2",
-        "sway-3",
-        "sway-4",
-        "sway-5",
-        "sway-6",
-        "sway-7",
-        "sway-8",
+        'sway-0',
+        'sway-1',
+        'sway-2',
+        'sway-3',
+        'sway-4',
+        'sway-5',
+        'sway-6',
+        'sway-7',
+        'sway-8',
       ],
     };
 
@@ -143,15 +139,15 @@ const Sakura = function (selector, options) {
     // Create animations
     const animationsArr = [
       `fall ${fallTime}s linear 0s 1`,
-      `${blowAnimation} ${
-        (fallTime > 30 ? fallTime : 30) - 20 + randomInt(0, 20)
-      }s linear 0s infinite`,
+      `${blowAnimation} ${(fallTime > 30 ? fallTime : 30) -
+        20 +
+        randomInt(0, 20)}s linear 0s infinite`,
       `${swayAnimation} ${randomInt(2, 4)}s linear 0s infinite`,
     ];
-    const animations = animationsArr.join(", ");
+    const animations = animationsArr.join(', ');
 
     // Create petal and give it a random size.
-    const petal = document.createElement("div");
+    const petal = document.createElement('div');
     petal.classList.add(this.settings.className);
     const height = randomInt(this.settings.minSize, this.settings.maxSize);
     const width = height - Math.floor(randomInt(0, this.settings.minSize) / 3);
@@ -164,24 +160,23 @@ const Sakura = function (selector, options) {
     petal.style.animation = animations;
     petal.style.borderRadius = `${randomInt(
       this.settings.maxSize,
-      this.settings.maxSize + Math.floor(Math.random() * 10)
+      this.settings.maxSize + Math.floor(Math.random() * 10),
     )}px ${randomInt(1, Math.floor(width / 4))}px`;
     petal.style.height = `${height}px`;
-    petal.style.left = `${
-      Math.random() * document.documentElement.clientWidth - 100
-    }px`;
+    petal.style.left = `${Math.random() * document.documentElement.clientWidth -
+      100}px`;
     petal.style.marginTop = `${-(Math.floor(Math.random() * 20) + 15)}px`;
     petal.style.width = `${width}px`;
 
     // Remove petals of which the animation ended.
-    PrefixedEvent(petal, "AnimationEnd", () => {
+    PrefixedEvent(petal, 'AnimationEnd', () => {
       if (!elementInViewport(petal)) {
         petal.remove();
       }
     });
 
     // Remove petals that float out of the viewport.
-    PrefixedEvent(petal, "AnimationIteration", () => {
+    PrefixedEvent(petal, 'AnimationIteration', () => {
       if (!elementInViewport(petal)) {
         petal.remove();
       }
@@ -195,28 +190,28 @@ const Sakura = function (selector, options) {
   };
 
   this.el.setAttribute(
-    "data-sakura-anim-id",
-    window.requestAnimationFrame(this.createPetal)
+    'data-sakura-anim-id',
+    window.requestAnimationFrame(this.createPetal),
   );
 };
 
-Sakura.prototype.start = function () {
+Sakura.prototype.start = function() {
   const animId = this.el.dataset.sakuraAnimId;
   if (!animId) {
     this.el.setAttribute(
-      "data-sakura-anim-id",
-      window.requestAnimationFrame(this.createPetal)
+      'data-sakura-anim-id',
+      window.requestAnimationFrame(this.createPetal),
     );
   } else {
-    throw new Error("Sakura is already running.");
+    throw new Error('Sakura is already running.');
   }
 };
 
-Sakura.prototype.stop = function (graceful = false) {
+Sakura.prototype.stop = function(graceful = false) {
   const animId = this.el.dataset.sakuraAnimId;
   if (animId) {
     window.cancelAnimationFrame(animId);
-    this.el.setAttribute("data-sakura-anim-id", "");
+    this.el.setAttribute('data-sakura-anim-id', '');
   }
 
   // Remove all current blossoms at once.
