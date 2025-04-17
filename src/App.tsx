@@ -42,6 +42,12 @@ function App() {
             <img
               src={`${import.meta.env.BASE_URL}img/logo_intro.svg`}
               alt="ㅊㅁ"
+              className="pc"
+            />
+            <img
+              src={`${import.meta.env.BASE_URL}img/logo_intro_c.svg`}
+              alt="ㅊㅁ"
+              className="mobile"
             />
             <p>
               이곳은 <span>ㅊㅁ</span>의 시를 모아둔 웹페이지입니다.

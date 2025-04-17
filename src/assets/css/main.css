@@ -32,8 +32,8 @@
 }
 .intro-overlay p {
   margin: 20px 0;
-  font-family: "BookkMyungjo";
-  font-size: 17px; line-height: 160%; font-weight: 300; color: #fff;
+  /* font-family: "BookkMyungjo"; */
+  font-size: 20px; line-height: 160%; font-weight: 300; color: #fff;
 }
 .intro-overlay p span {
   font-weight: 600; color: #fde0e5;
@@ -41,14 +41,14 @@
 .intro-content {
   text-align: center;
   position: relative;
-  padding: 30px;
+  padding: 80px 30px;
   width: 30vw;
   /* height: 38vw; */
   border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.1);
+  /* background: rgba(0, 0, 0, 0.1); */
+  background-color: rgb(183 179 183 / 10%);
 }
 .enter-button {
   padding: 15px 30px;

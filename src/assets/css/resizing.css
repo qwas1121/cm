@@ -3,6 +3,9 @@
 .mobile {
   display: none;
 }
+.pc {
+  display: block;
+}
 @media screen and (max-width:1400px) {
   .poem_box {
     width: 40vw; height: 48vw;
@@ -23,10 +26,9 @@
   .poem_cover {
     height: 37vw;
   }
-  .intro-overlay p {
-    font-size: 14px;
-  }
+ 
   .intro-content {
+    padding: 30px;
     width: 80%;
     background: none;
     border: none;
@@ -35,6 +37,26 @@
 @media screen and (max-width:480px) {
   .mobile {
     display: block;
+  }
+  .pc {
+    display: none;
+  }
+  .intro-content {
+    position: absolute; top: 30vw; left: 50%;
+    padding: 0;
+    width: 100%;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transform: translateX(-50%);
+  }
+  .intro-overlay p {
+    font-size: 15px; color: #333;
+  }
+  .intro-overlay p span {
+    color: #824cc9;
+  }
+  .intro-overlay img.mobile {
+    display: inline-block;
   }
   .mainpage {
     background-position: center;

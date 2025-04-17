@@ -15,8 +15,8 @@ const Sakura = function(selector, options) {
     colors: [
       {
         // You can add multiple colors (chosen randomly) by adding elements to the array.
-        gradientColorStart: 'rgba(249, 183, 255, 0.9)', // Gradient color start (rgba).
-        gradientColorEnd: 'rgba(245, 197, 255, 0.9)', // Gradient color end (rgba).
+        gradientColorStart: 'rgba(249, 183, 255, 0.4)', // Gradient color start (rgba).
+        gradientColorEnd: 'rgba(245, 197, 255, 0.4)', // Gradient color end (rgba).
         gradientColorDegree: 120, // Gradient degree angle.
       },
     ],
