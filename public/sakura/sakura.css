@@ -159,3 +159,7 @@
   pointer-events: none;
   position: absolute;
 }
+
+.menuOpen .sakura {
+  z-index: 1;
+}
